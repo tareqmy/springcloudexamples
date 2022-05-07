@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  gogsdb:
+    image: tareqmy/postgres:latest
+    container_name: gogsdb
+    hostname: gogsdb
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      - "POSTGRES_USER=gogs"
+      - "POSTGRES_PASSWORD=gogs"
+      - "POSTGRES_DB=gogs"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+  gogs:
+    image: gogs/gogs:latest
+    container_name: gogs
+    hostname: gogs
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - "10022:22"
+      - "3000:3000"
+    links:
+      - gogsdb
+    environment:
+      - "RUN_CROND=true"
+    volumes:
+      - "gogs-data:/data"
+    depends_on:
+      - gogsdb
+
+volumes:
+  db-data:
+    driver: local
+  gogs-data:
+    driver: local
