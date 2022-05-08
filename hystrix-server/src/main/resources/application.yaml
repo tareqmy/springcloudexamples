@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: hystrix-server
+    cloud:
+        config:
+            uri: http://localhost:8888/
+
+    config:
+        import: "optional:configserver:${CONFIG_SERVER:http://localhost:8888}"
