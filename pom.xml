@@ -23,6 +23,7 @@
         <module>discovery-server</module>
         <module>hystrix-server</module>
         <module>microservice</module>
+        <module>turbine-server</module>
     </modules>
 
 </project>
