@@ -15,7 +15,7 @@ spring:
                 -   id: microservice
                     uri: lb://microservice
                     predicates:
-                        - Path=/hello/**
+                        - Path=/**
 
 eureka:
     client:

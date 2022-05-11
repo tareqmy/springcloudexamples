@@ -15,6 +15,8 @@ management:
         hystrix:
             stream:
                 enabled: true
+        health:
+            show-details: always
     endpoints:
         web:
             cors:
@@ -22,3 +24,4 @@ management:
             exposure:
                 include: "*"
 #                include: "hystrix.stream"
+                exclude: threaddump, heapdump
