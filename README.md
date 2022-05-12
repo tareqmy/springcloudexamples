@@ -4,9 +4,9 @@
 - security -> apikey, oauth2, openid, amazon cognito
 - cloud -> eureka/zookeeper/consul, discovery/registry-server, config-server, 
            gateway(load balancing and rate limiting), ribbon, openfeign, aws xray/zipkin/sleuth
-- message/events -> rabbitmq, kafka, cloudbus
+- message/events -> rabbitmq, kafka, cloudbus, cloud-stream
 - elasticsearch, kibana, logstash
-
+- openapi3
 
 ### Reference Documentation
 
