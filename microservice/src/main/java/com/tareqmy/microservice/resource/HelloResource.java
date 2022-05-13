@@ -1,4 +1,4 @@
-package com.tareqmy.microservice;
+package com.tareqmy.microservice.resource;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.GetMapping;

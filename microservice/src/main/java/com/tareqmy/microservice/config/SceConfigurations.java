@@ -1,4 +1,4 @@
-package com.tareqmy.microservice;
+package com.tareqmy.microservice.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.cors.CorsConfiguration;

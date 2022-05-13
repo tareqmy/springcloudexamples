@@ -1,7 +1,7 @@
 eureka:
     client:
         service-url:
-            defaultZone: http://localhost:8761/eureka
+            defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
 ### Configures the application's credentials as metadata in Eureka so that the
 ### Spring Boot Admin will be able to authenticate against Actuator security.
     instance:
@@ -10,10 +10,6 @@ eureka:
             user.password: password
 server:
     port: 8090
-
-ribbon:
-    eureka:
-        enabled: true
 
 management:
     endpoint:
@@ -38,3 +34,21 @@ spring:
     sleuth:
         sampler:
             probability: 1
+
+springdoc:
+    swagger-ui:
+        enabled: true
+        path: '/openapi/ui/index.html'
+    api-docs:
+        path: '/api/v3/api-docs'
+        enabled: true
+
+# App Properties
+springcloudexamples:
+    cors:
+        allowed-origins: "http://localhost:8080"
+        allowed-methods: "*"
+        allowed-headers: "*"
+        exposed-headers: "Authorization"
+        allow-credentials: true
+        max-age: 1800

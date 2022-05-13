@@ -4,14 +4,14 @@ spring:
     cloud:
         config:
             server:
-                git:
-                    uri: https://github.com/tareqmy/cloudconfigrepo
-                    search-paths: configs
+#                git:
+#                    uri: https://github.com/tareqmy/cloudconfigrepo
+#                    search-paths: configs
 #  native mode cane applied with the following commented section
-#                native:
-#                    search-locations: classpath:/configurations
-#    profiles:
-#        active: native
+                native:
+                    search-locations: classpath:/configurations
+    profiles:
+        active: native
 server:
     port: 8888
 
