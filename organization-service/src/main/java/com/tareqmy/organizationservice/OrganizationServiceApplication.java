@@ -2,12 +2,17 @@ package com.tareqmy.organizationservice;
 
 import com.tareqmy.organizationservice.model.Organization;
 import com.tareqmy.organizationservice.repository.OrganizationRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @EnableFeignClients
+@OpenAPIDefinition(info =
+@Info(title = "Organization API", version = "${springdoc.version}", description = "Documentation Organization API v1.0")
+)
 @SpringBootApplication
 public class OrganizationServiceApplication {
 
