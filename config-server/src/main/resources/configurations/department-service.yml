@@ -5,3 +5,13 @@ eureka:
 
 server:
     port: 8094
+
+# App Properties
+department-service:
+    cors:
+        allowed-origins: "http://localhost:8080"
+        allowed-methods: "*"
+        allowed-headers: "*"
+        exposed-headers: "Authorization"
+        allow-credentials: true
+        max-age: 1800
