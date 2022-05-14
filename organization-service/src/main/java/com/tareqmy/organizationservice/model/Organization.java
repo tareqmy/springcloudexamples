@@ -1,68 +1,30 @@
 package com.tareqmy.organizationservice.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Organization {
 
-	private Long id;
-	private String name;
-	private String address;
-	private List<Department> departments = new ArrayList<>();
-	private List<Employee> employees = new ArrayList<>();
+    private Long id;
 
-	public Organization() {
+    private String name;
 
-	}
+    private String address;
 
-	public Organization(String name, String address) {
-		this.name = name;
-		this.address = address;
-	}
+    private List<Department> departments = new ArrayList<>();
 
-	public Long getId() {
-		return id;
-	}
+    private List<Employee> employees = new ArrayList<>();
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Organization() {
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public List<Department> getDepartments() {
-		return departments;
-	}
-
-	public void setDepartments(List<Department> departments) {
-		this.departments = departments;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	@Override
-	public String toString() {
-		return "Organization [id=" + id + ", name=" + name + ", address=" + address + "]";
-	}
-
+    }
 }
