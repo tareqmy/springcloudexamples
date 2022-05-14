@@ -29,6 +29,7 @@
         <module>hystrix-server</module>
         <module>microservice</module>
         <module>turbine-server</module>
+        <module>employee-service</module>
     </modules>
 
 </project>
