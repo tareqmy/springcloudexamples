@@ -1,0 +1,14 @@
+application:
+    title: organization-service
+    version: 0.0.1
+spring:
+    application:
+        name: organization-service
+    profiles:
+        active: dev
+    cloud:
+        config:
+            uri: http://localhost:8888/
+
+    config:
+        import: "optional:configserver:${CONFIG_SERVER:http://localhost:8888}"
