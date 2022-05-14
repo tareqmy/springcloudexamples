@@ -1,7 +1,9 @@
 package com.tareqmy.employeeservice.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tareqmy.employeeservice.model.Employee;
 import com.tareqmy.employeeservice.repository.EmployeeRepository;
+import com.tareqmy.employeeservice.utils.ArtificialUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,10 +31,17 @@ public class EmployeeController {
         return repository.findById(id);
     }
 
+    @HystrixCommand(defaultFallback = "findAllFallBack")
     @GetMapping("/")
     public List<Employee> findAll() {
         log.info("Employee find");
+        ArtificialUtils.artificialSlowness();
         return repository.findAll();
+    }
+
+    public List<Employee> findAllFallBack() {
+        log.info("Employee find fallback");
+        return repository.findFirst5();
     }
 
     @GetMapping("/department/{departmentId}")

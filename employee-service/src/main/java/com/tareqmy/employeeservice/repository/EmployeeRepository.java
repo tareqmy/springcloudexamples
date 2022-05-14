@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeRepository {
 
-    private List<Employee> employees = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
 
     public Employee add(Employee employee) {
         employee.setId((long) (employees.size() + 1));
@@ -19,14 +19,15 @@ public class EmployeeRepository {
 
     public Employee findById(Long id) {
         Optional<Employee> employee = employees.stream().filter(a -> a.getId().equals(id)).findFirst();
-        if (employee.isPresent())
-            return employee.get();
-        else
-            return null;
+        return employee.orElse(null);
     }
 
     public List<Employee> findAll() {
         return employees;
+    }
+
+    public List<Employee> findFirst5() {
+        return employees.subList(0, 4);
     }
 
     public List<Employee> findByDepartment(Long departmentId) {
