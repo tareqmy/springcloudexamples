@@ -1,0 +1,9 @@
+${AnsiColor.BRIGHT_BLACK}
+ +-+-+-+-+-+-+-+
+ |h|y|s|t|r|i|x|
+ +-+-+-+-+-+-+-+
+ Version: ${application.version}
+${AnsiColor.BLACK}
+http://patorjk.com/software/taag/#p=display&f=Digital&t=springbootexamples
+${AnsiColor.DEFAULT}
+Powered by Spring Boot ${spring-boot.version}

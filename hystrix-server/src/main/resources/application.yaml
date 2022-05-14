@@ -1,3 +1,6 @@
+application:
+    title: hystrix-server
+    version: 0.0.1
 spring:
     application:
         name: hystrix-server
