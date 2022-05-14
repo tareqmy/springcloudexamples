@@ -9,3 +9,10 @@ server:
 turbine:
     app-config: microservice
     cluster-name-expression: "'default'"
+
+# Logging
+logging:
+    level:
+        root: INFO
+        #        web: DEBUG
+        com.tareqmy.turbineserver: DEBUG

@@ -9,3 +9,10 @@ server:
 hystrix:
     dashboard:
         proxy-stream-allow-list: "*"
+
+# Logging
+logging:
+    level:
+        root: INFO
+        #        web: DEBUG
+        com.tareqmy.hystrixserver: DEBUG

@@ -24,7 +24,9 @@ public class Organization {
 
     private List<Employee> employees = new ArrayList<>();
 
-    public Organization() {
-
+    public Organization(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
+
 }

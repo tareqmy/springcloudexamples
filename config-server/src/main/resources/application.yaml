@@ -18,3 +18,9 @@ spring:
 server:
     port: 8888
 
+# Logging
+logging:
+    level:
+        root: INFO
+        #        web: DEBUG
+        com.tareqmy.configserver: DEBUG
