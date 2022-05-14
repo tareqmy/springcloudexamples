@@ -43,6 +43,21 @@ spring:
                         - Path=/v3/api-docs/**
                     filters:
                         - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+management:
+    endpoint:
+        hystrix:
+            stream:
+                enabled: true
+        health:
+            show-details: always
+    endpoints:
+        web:
+            cors:
+                allowed-origins: "*"
+            exposure:
+                include: "*"
+                #                include: "hystrix.stream"
+                exclude: threaddump, heapdump
 
 springdoc:
     swagger-ui:
