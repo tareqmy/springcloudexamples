@@ -12,8 +12,8 @@ spring:
                         allowedOrigins: "*"
                         allowedMethods: "*"
             routes:
-                -   id: microservice
-                    uri: lb://microservice
+                -   id: employee-service
+                    uri: lb://employee-service
                     predicates:
                         - Path=/**
 
