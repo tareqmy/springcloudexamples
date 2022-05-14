@@ -24,6 +24,12 @@ spring:
                         - Path=/employee/**
                     filters:
                         - RewritePath=/employee/(?<path>.*), /$\{path}
+                -   id: department-service
+                    uri: lb://department-service
+                    predicates:
+                        - Path=/department/**
+                    filters:
+                        - RewritePath=/department/(?<path>.*), /$\{path}
 
                 -   id: openapi
                     uri: http://localhost:${server.port}
