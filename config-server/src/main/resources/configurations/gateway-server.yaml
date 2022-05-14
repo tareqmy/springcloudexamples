@@ -43,6 +43,8 @@ springdoc:
         urls:
             - name: employee
               url: /v3/api-docs/employee
+            - name: department
+              url: /v3/api-docs/department
 
     # Zipkin info
     zipkin:

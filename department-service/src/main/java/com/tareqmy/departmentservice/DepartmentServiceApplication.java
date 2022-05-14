@@ -2,12 +2,17 @@ package com.tareqmy.departmentservice;
 
 import com.tareqmy.departmentservice.model.Department;
 import com.tareqmy.departmentservice.repository.DepartmentRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @EnableFeignClients
+@OpenAPIDefinition(info =
+@Info(title = "Department API", version = "${springdoc.version}", description = "Documentation Department API v1.0")
+)
 @SpringBootApplication
 public class DepartmentServiceApplication {
 
