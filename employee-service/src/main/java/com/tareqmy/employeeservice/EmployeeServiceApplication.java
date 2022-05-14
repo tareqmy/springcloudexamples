@@ -2,12 +2,17 @@ package com.tareqmy.employeeservice;
 
 import com.tareqmy.employeeservice.model.Employee;
 import com.tareqmy.employeeservice.repository.EmployeeRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
 
 @EnableHystrix
+@OpenAPIDefinition(info =
+@Info(title = "Employee API", version = "${springdoc.version}", description = "Documentation Employee API v1.0")
+)
 @SpringBootApplication
 public class EmployeeServiceApplication {
 
