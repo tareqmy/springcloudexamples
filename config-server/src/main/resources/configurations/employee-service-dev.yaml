@@ -1,0 +1,6 @@
+# Logging
+logging:
+    level:
+        root: INFO
+        #        web: DEBUG
+        com.tareqmy.employeeservice: DEBUG
