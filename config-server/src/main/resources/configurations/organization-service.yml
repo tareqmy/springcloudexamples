@@ -6,6 +6,22 @@ eureka:
 server:
     port: 8096
 
+management:
+    endpoint:
+        hystrix:
+            stream:
+                enabled: true
+        health:
+            show-details: always
+    endpoints:
+        web:
+            cors:
+                allowed-origins: "*"
+            exposure:
+                include: "*"
+                #                include: "hystrix.stream"
+                exclude: threaddump, heapdump
+
 spring:
     # Zipkin info
     zipkin:
