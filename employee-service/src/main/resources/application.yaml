@@ -13,6 +13,10 @@ spring:
     config:
         import: "optional:configserver:${CONFIG_SERVER:http://localhost:8888}"
 
+    devtools:
+        livereload:
+            port: 35732
+
 springdoc:
     version: '@springdoc.version@'
     show-actuator: true
