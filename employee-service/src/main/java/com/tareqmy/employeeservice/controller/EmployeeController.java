@@ -41,7 +41,7 @@ public class EmployeeController {
 
     public List<Employee> findAllFallBack() {
         log.info("Employee find fallback");
-        return repository.findFirst5();
+        return repository.findFirst2();
     }
 
     @GetMapping("/department/{departmentId}")

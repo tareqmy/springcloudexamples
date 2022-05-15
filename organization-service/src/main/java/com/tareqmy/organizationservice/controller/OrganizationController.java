@@ -1,9 +1,11 @@
 package com.tareqmy.organizationservice.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tareqmy.organizationservice.client.DepartmentClient;
 import com.tareqmy.organizationservice.client.EmployeeClient;
 import com.tareqmy.organizationservice.model.Organization;
 import com.tareqmy.organizationservice.repository.OrganizationRepository;
+import com.tareqmy.organizationservice.utils.ArtificialUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +36,18 @@ public class OrganizationController {
 		return repository.add(organization);
 	}
 
+    @HystrixCommand(defaultFallback = "findAllFallBack")
 	@GetMapping
 	public List<Organization> findAll() {
         log.info("Organization find");
+        ArtificialUtils.artificialSlowness();
 		return repository.findAll();
 	}
+
+    public List<Organization> findAllFallBack() {
+        log.info("Organization find fallback");
+        return repository.findFirst2();
+    }
 
 	@GetMapping("/{id}")
 	public Organization findById(@PathVariable("id") Long id) {

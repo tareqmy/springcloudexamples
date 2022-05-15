@@ -7,7 +7,7 @@ server:
     port: 8989
 
 turbine:
-    app-config: microservice
+    app-config: employee-service,department-service,organization-service
     cluster-name-expression: "'default'"
 
 # Logging

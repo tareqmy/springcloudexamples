@@ -26,8 +26,8 @@ public class EmployeeRepository {
         return employees;
     }
 
-    public List<Employee> findFirst5() {
-        return employees.subList(0, 4);
+    public List<Employee> findFirst2() {
+        return employees.subList(1, 2);
     }
 
     public List<Employee> findByDepartment(Long departmentId) {

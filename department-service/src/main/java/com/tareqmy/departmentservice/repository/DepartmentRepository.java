@@ -26,6 +26,10 @@ public class DepartmentRepository {
         return departments;
     }
 
+    public List<Department> findFirst2() {
+        return departments.subList(1, 2);
+    }
+
     public List<Department> findByOrganization(Long organizationId) {
         return departments.stream().filter(a -> a.getOrganizationId().equals(organizationId)).collect(Collectors.toList());
     }

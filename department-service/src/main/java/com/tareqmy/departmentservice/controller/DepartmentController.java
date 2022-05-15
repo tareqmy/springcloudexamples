@@ -1,8 +1,10 @@
 package com.tareqmy.departmentservice.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tareqmy.departmentservice.client.EmployeeClient;
 import com.tareqmy.departmentservice.model.Department;
 import com.tareqmy.departmentservice.repository.DepartmentRepository;
+import com.tareqmy.departmentservice.utils.ArtificialUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +31,7 @@ public class DepartmentController {
         return repository.add(department);
     }
 
+    @HystrixCommand(defaultFallback = "findAllFallBack")
     @GetMapping("/{id}")
     public Department findById(@PathVariable("id") Long id) {
         log.info("Department find: id={}", id);
@@ -38,7 +41,13 @@ public class DepartmentController {
     @GetMapping("/")
     public List<Department> findAll() {
         log.info("Department find");
+        ArtificialUtils.artificialSlowness();
         return repository.findAll();
+    }
+
+    public List<Department> findAllFallBack() {
+        log.info("Department find fallback");
+        return repository.findFirst2();
     }
 
     @GetMapping("/organization/{organizationId}")

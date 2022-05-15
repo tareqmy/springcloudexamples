@@ -25,4 +25,7 @@ public class OrganizationRepository {
         return organizations;
     }
 
+    public List<Organization> findFirst2() {
+        return organizations.subList(1, 2);
+    }
 }
