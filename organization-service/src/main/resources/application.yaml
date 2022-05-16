@@ -1,6 +1,9 @@
 application:
     title: organization-service
     version: 0.0.1
+    log:
+        path: /tmp/logs/springcloudexamples
+
 spring:
     application:
         name: organization-service

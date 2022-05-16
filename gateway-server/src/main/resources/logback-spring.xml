@@ -3,6 +3,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <springProperty scope="context" name="applicationName" source="application.title"/>
+    <springProperty scope="context" name="applicationLogPath" source="application.log.path"/>
     <springProperty scope="context" name="logstashServer" source="spring.logstash.server"/>
     <springProperty scope="context" name="logstashPort" source="spring.logstash.port"/>
 
@@ -15,38 +16,53 @@
         </encoder>
     </appender>
 
-    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>${logstashServer}:${logstashPort}</destination>
-        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-            <providers>
-                <mdc/>
-                <context/>
-                <logLevel/>
-                <loggerName/>
-                <pattern>
-                    <pattern>
-                        { "appName": "${applicationName}" }
-                    </pattern>
-                </pattern>
-                <threadName/>
-                <message/>
-                <logstashMarkers/>
-                <stackTrace/>
-            </providers>
-        </encoder>
-    </appender>
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <append>true</append>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; rollover daily &ndash;&gt;-->
+<!--            <fileNamePattern>${applicationLogPath}/${applicationName}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+<!--            <maxFileSize>100KB</maxFileSize>-->
+<!--            <maxHistory>2</maxHistory>-->
+<!--            <totalSizeCap>10MB</totalSizeCap>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>%date{"yyyy-MM-dd'T'HH:mm:ssXXX"} %-5level %logger{36} - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+<!--    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+<!--        <destination>${logstashServer}:${logstashPort}</destination>-->
+<!--        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
+<!--            <providers>-->
+<!--                <mdc/>-->
+<!--                <context/>-->
+<!--                <logLevel/>-->
+<!--                <loggerName/>-->
+<!--                <pattern>-->
+<!--                    <pattern>-->
+<!--                        { "appName": "${applicationName}" }-->
+<!--                    </pattern>-->
+<!--                </pattern>-->
+<!--                <threadName/>-->
+<!--                <message/>-->
+<!--                <logstashMarkers/>-->
+<!--                <stackTrace/>-->
+<!--            </providers>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
         <resetJUL>true</resetJUL>
     </contextListener>
 
-    <logger name="com.tareqmy.gatewayserver" level="@logback.loglevel@"/>
+<!--    <logger name="com.tareqmy.gatewayserver" level="@logback.loglevel@"/>-->
 
     <root level="@logback.loglevel@">
         <springProfile name="dev">
             <appender-ref ref="CONSOLE"/>
         </springProfile>
-        <appender-ref ref="logstash"/>
+<!--        <appender-ref ref="FILE"/>-->
+<!--        <appender-ref ref="logstash"/>-->
     </root>
 
 </configuration>

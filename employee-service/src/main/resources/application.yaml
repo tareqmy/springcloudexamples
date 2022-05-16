@@ -1,6 +1,9 @@
 application:
     title: employee-service
     version: 0.0.1
+    log:
+        path: /tmp/logs/springcloudexamples
+
 spring:
     application:
         name: employee-service
