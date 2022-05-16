@@ -2,6 +2,9 @@
 
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <springProperty scope="context" name="applicationName" source="application.title"/>
+    <springProperty scope="context" name="logstashServer" source="spring.logstash.server"/>
+    <springProperty scope="context" name="logstashPort" source="spring.logstash.port"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -13,7 +16,7 @@
     </appender>
 
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>localhost:5000</destination>
+        <destination>${logstashServer}:${logstashPort}</destination>
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <providers>
                 <mdc/>
@@ -22,7 +25,7 @@
                 <loggerName/>
                 <pattern>
                     <pattern>
-                        { "appName": "department-service" }
+                        { "appName": "${applicationName}" }
                     </pattern>
                 </pattern>
                 <threadName/>
@@ -43,7 +46,7 @@
         <springProfile name="dev">
             <appender-ref ref="CONSOLE"/>
         </springProfile>
-        <appender-ref ref="logstash"/>
+<!--        <appender-ref ref="logstash"/>-->
     </root>
 
 </configuration>

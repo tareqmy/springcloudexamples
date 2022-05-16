@@ -13,6 +13,10 @@ spring:
     config:
         import: "optional:configserver:${CONFIG_SERVER:http://localhost:8888}"
 
+    logstash:
+        server: ${LOGSTASH_SERVER:localhost}
+        port: ${LOGSTASH_PORT:5000}
+
 springdoc:
     version: '@springdoc.version@'
     swagger-ui:
