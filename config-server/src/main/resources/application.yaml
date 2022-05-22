@@ -10,6 +10,7 @@ spring:
 #                git:
 #                    uri: https://github.com/tareqmy/cloudconfigrepo
 #                    search-paths: configs
+#                    clone-on-start: true
 #  native mode cane applied with the following commented section
                 native:
                     search-locations: classpath:/configurations

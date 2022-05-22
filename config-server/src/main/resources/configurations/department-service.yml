@@ -22,7 +22,6 @@ management:
                 #                include: "hystrix.stream"
                 exclude: threaddump, heapdump
 
-
 spring:
     # Zipkin info
     zipkin:

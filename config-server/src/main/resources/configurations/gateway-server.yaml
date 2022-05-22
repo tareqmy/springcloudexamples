@@ -6,6 +6,10 @@ spring:
             discovery:
                 locator:
                     enabled: true
+                    lower-case-service-id: true
+#        loadbalancer:
+#            ribbon:
+#                enabled: false
             globalcors:
                 cors-configurations:
                     '[/**]':
