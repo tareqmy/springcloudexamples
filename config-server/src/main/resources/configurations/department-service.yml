@@ -30,6 +30,12 @@ spring:
         sampler:
             probability: 1
 
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8880/auth/realms/spring-cloud-microservices-realm
+
 # App Properties
 department-service:
     cors:
