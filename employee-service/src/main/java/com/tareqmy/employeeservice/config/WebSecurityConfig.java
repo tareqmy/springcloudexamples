@@ -22,5 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated())
             .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+
+        http.csrf().disable();
+        http.formLogin().disable();
+        http.httpBasic().disable();
     }
 }
