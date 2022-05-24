@@ -19,22 +19,4 @@ import java.util.List;
 @Configuration
 public class OpenAPIConfig {
 
-    @Bean
-    @Lazy(false)
-    public List<GroupedOpenApi> apis(SwaggerUiConfigParameters swaggerUiConfigParameters, RouteDefinitionLocator locator) {
-        List<GroupedOpenApi> groups = new ArrayList<>();
-        List<RouteDefinition> definitions = locator.getRouteDefinitions().collectList().block();
-        for (RouteDefinition definition : definitions) {
-            log.info("id: " + definition.getId() + "  " + definition.getUri().toString());
-        }
-        definitions.stream()
-            .filter(routeDefinition -> routeDefinition.getId()
-                .matches(".*-service"))
-            .forEach(routeDefinition -> {
-                String name = routeDefinition.getId().replaceAll("-service", "");
-                swaggerUiConfigParameters.addGroup(name);
-                GroupedOpenApi.builder().pathsToMatch("/" + name + "/**").group(name).build();
-            });
-        return groups;
-    }
 }
