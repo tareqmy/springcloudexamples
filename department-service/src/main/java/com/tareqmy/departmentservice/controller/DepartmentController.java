@@ -5,6 +5,7 @@ import com.tareqmy.departmentservice.client.EmployeeClient;
 import com.tareqmy.departmentservice.model.Department;
 import com.tareqmy.departmentservice.repository.DepartmentRepository;
 import com.tareqmy.departmentservice.utils.ArtificialUtils;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +58,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/organization/{organizationId}/with-employees")
-    public List<Department> findByOrganizationWithEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+    public List<Department> findByOrganizationWithEmployees(@Parameter(hidden = true) @RequestHeader("Authorization") String authorizationHeader,
                                                             @PathVariable("organizationId") Long organizationId) {
         log.info("Department find: organizationId={}", organizationId);
         List<Department> departments = repository.findByOrganization(organizationId);

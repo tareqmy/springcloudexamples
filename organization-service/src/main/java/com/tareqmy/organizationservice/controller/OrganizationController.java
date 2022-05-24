@@ -6,6 +6,7 @@ import com.tareqmy.organizationservice.client.EmployeeClient;
 import com.tareqmy.organizationservice.model.Organization;
 import com.tareqmy.organizationservice.repository.OrganizationRepository;
 import com.tareqmy.organizationservice.utils.ArtificialUtils;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ public class OrganizationController {
 	}
 
 	@GetMapping("/{id}/with-departments")
-	public Organization findByIdWithDepartments(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+	public Organization findByIdWithDepartments(@Parameter(hidden = true) @RequestHeader("Authorization") String authorizationHeader,
                                                 @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
@@ -65,7 +66,7 @@ public class OrganizationController {
 	}
 
 	@GetMapping("/{id}/with-departments-and-employees")
-	public Organization findByIdWithDepartmentsAndEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+	public Organization findByIdWithDepartmentsAndEmployees(@Parameter(hidden = true) @RequestHeader("Authorization") String authorizationHeader,
                                                             @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
@@ -74,7 +75,7 @@ public class OrganizationController {
 	}
 
 	@GetMapping("/{id}/with-employees")
-	public Organization findByIdWithEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+	public Organization findByIdWithEmployees(@Parameter(hidden = true) @RequestHeader("Authorization") String authorizationHeader,
                                               @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);

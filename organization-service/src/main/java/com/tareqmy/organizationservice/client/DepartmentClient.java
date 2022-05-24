@@ -12,11 +12,11 @@ import java.util.List;
 public interface DepartmentClient {
 
     @GetMapping("/organization/{organizationId}")
-    List<Department> findByOrganization(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+    List<Department> findByOrganization(@RequestHeader("Authorization") String authorizationHeader,
                                         @PathVariable("organizationId") Long organizationId);
 
     @GetMapping("/organization/{organizationId}/with-employees")
-    List<Department> findByOrganizationWithEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+    List<Department> findByOrganizationWithEmployees(@RequestHeader("Authorization") String authorizationHeader,
                                                      @PathVariable("organizationId") Long organizationId);
 
 }
