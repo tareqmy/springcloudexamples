@@ -10,7 +10,7 @@ management:
     endpoint:
         hystrix:
             stream:
-                enabled: true
+                enabled: false
         health:
             show-details: always
     endpoints:

@@ -26,4 +26,4 @@ spring:
 
 springdoc:
     version: '@springdoc.version@'
-    show-actuator: true
+    show-actuator: false

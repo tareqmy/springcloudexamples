@@ -31,13 +31,13 @@ public class DepartmentController {
         return repository.add(department);
     }
 
-    @HystrixCommand(defaultFallback = "findAllFallBack")
     @GetMapping("/{id}")
     public Department findById(@PathVariable("id") Long id) {
         log.info("Department find: id={}", id);
         return repository.findById(id);
     }
 
+    @HystrixCommand(defaultFallback = "findAllFallBack")
     @GetMapping("/")
     public List<Department> findAll() {
         log.info("Department find");
