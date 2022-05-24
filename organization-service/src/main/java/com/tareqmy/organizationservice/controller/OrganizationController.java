@@ -56,26 +56,29 @@ public class OrganizationController {
 	}
 
 	@GetMapping("/{id}/with-departments")
-	public Organization findByIdWithDepartments(@PathVariable("id") Long id) {
+	public Organization findByIdWithDepartments(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+                                                @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
-		organization.setDepartments(departmentClient.findByOrganization(organization.getId()));
+		organization.setDepartments(departmentClient.findByOrganization(authorizationHeader, organization.getId()));
 		return organization;
 	}
 
 	@GetMapping("/{id}/with-departments-and-employees")
-	public Organization findByIdWithDepartmentsAndEmployees(@PathVariable("id") Long id) {
+	public Organization findByIdWithDepartmentsAndEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+                                                            @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
-		organization.setDepartments(departmentClient.findByOrganizationWithEmployees(organization.getId()));
+		organization.setDepartments(departmentClient.findByOrganizationWithEmployees(authorizationHeader, organization.getId()));
 		return organization;
 	}
 
 	@GetMapping("/{id}/with-employees")
-	public Organization findByIdWithEmployees(@PathVariable("id") Long id) {
+	public Organization findByIdWithEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+                                              @PathVariable("id") Long id) {
         log.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
-		organization.setEmployees(employeeClient.findByOrganization(organization.getId()));
+		organization.setEmployees(employeeClient.findByOrganization(authorizationHeader, organization.getId()));
 		return organization;
 	}
 

@@ -57,10 +57,11 @@ public class DepartmentController {
     }
 
     @GetMapping("/organization/{organizationId}/with-employees")
-    public List<Department> findByOrganizationWithEmployees(@PathVariable("organizationId") Long organizationId) {
+    public List<Department> findByOrganizationWithEmployees(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,
+                                                            @PathVariable("organizationId") Long organizationId) {
         log.info("Department find: organizationId={}", organizationId);
         List<Department> departments = repository.findByOrganization(organizationId);
-        departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(d.getId())));
+        departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(authorizationHeader, d.getId())));
         return departments;
     }
 
