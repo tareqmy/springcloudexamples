@@ -1,1 +1,1 @@
-docker logs -f keycloak
+docker-compose logs -f

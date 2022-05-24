@@ -15,10 +15,19 @@ public class SecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity serverHttpSecurity) {
-        serverHttpSecurity.authorizeExchange(exchange -> exchange.anyExchange().authenticated())
+        serverHttpSecurity.authorizeExchange(exchange -> exchange
+                .pathMatchers("/v3/api-docs/**",
+                    "/employee/v3/api-docs/**",
+                    "/department/v3/api-docs/**",
+                    "/organization/v3/api-docs/**",
+                    "/webjars/swagger-ui/**",
+                    "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                .anyExchange().authenticated())
             .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt);
 
         serverHttpSecurity.csrf().disable();
+        serverHttpSecurity.formLogin().disable();
+        serverHttpSecurity.httpBasic().disable();
         return serverHttpSecurity.build();
     }
 }
