@@ -8,41 +8,40 @@ services:
         restart: unless-stopped
         ports:
             - "9411:9411"
-    mariadbkc:
-        image: mariadb:latest
-        container_name: mariadbkc
-        hostname: mariadbkc
+    postgreskc:
+        image: postgres:alpine
+        container_name: postgreskc
+        hostname: postgreskc
         restart: unless-stopped
-        volumes:
-            - mysqlkc_data:/var/lib/mysql
+#        ports:
+#            - "5432:5432"
         environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: keycloak
-            MYSQL_USER: keycloak
-            MYSQL_PASSWORD: password
-        # Copy-pasted from https://github.com/docker-library/mariadb/issues/94
-        healthcheck:
-            test: ["CMD", "mysqladmin", "ping", "--silent"]
+            POSTGRES_USER: keycloak
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: keycloak
+            POSTGRES_HOST: postgres
+        volumes:
+            - postgreskc_data:/var/lib/postgresql/data
     keycloak:
         image: quay.io/keycloak/keycloak:legacy
         container_name: keycloak
         hostname: keycloak
         restart: unless-stopped
         environment:
-            DB_VENDOR: mariadb
-            DB_ADDR: mariadbkc
+            DB_VENDOR: POSTGRES
+            DB_ADDR: postgreskc
             DB_DATABASE: keycloak
             DB_USER: keycloak
+            DB_SCHEMA: public
             DB_PASSWORD: password
             KEYCLOAK_USER: admin
             KEYCLOAK_PASSWORD: password
-            JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
             # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
             #JDBC_PARAMS: "ssl=true"
         ports:
             - "8880:8080"
         depends_on:
-            - mariadbkc
+            - postgreskc
 #    gogsdb:
 #        image: tareqmy/postgres:latest
 #        container_name: gogsdb
@@ -80,5 +79,5 @@ volumes:
 #        driver: local
 #    gogs-data:
 #        driver: local
-    mysqlkc_data:
+    postgreskc_data:
         driver: local
