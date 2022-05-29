@@ -12,17 +12,8 @@ spring:
     cloud:
         config:
             uri: http://localhost:8888/
-
     config:
         import: "optional:configserver:${CONFIG_SERVER:http://localhost:8888}"
-
-    devtools:
-        livereload:
-            port: 35730
-
-    logstash:
-        server: ${LOGSTASH_SERVER:localhost}
-        port: ${LOGSTASH_PORT:5000}
 
 springdoc:
     version: '@springdoc.version@'

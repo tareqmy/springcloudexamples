@@ -52,6 +52,18 @@ spring:
                         - Path=/v3/api-docs/**
                     filters:
                         - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
+    # Zipkin info
+    zipkin:
+        base-url: http://localhost:9411/
+    sleuth:
+        sampler:
+            probability: 1
+
+    logstash:
+        server: ${LOGSTASH_SERVER:localhost}
+        port: ${LOGSTASH_PORT:5000}
+
 management:
     endpoint:
         hystrix:
@@ -77,13 +89,6 @@ springdoc:
               url: /v3/api-docs/department
             - name: organization
               url: /v3/api-docs/organization
-
-    # Zipkin info
-    zipkin:
-        base-url: http://localhost:9411/
-    sleuth:
-        sampler:
-            probability: 1
 
 eureka:
     client:

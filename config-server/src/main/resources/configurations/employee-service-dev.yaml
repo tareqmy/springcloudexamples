@@ -4,3 +4,8 @@ logging:
         root: INFO
         #        web: DEBUG
         com.tareqmy.employeeservice: DEBUG
+
+spring:
+    devtools:
+        livereload:
+            port: 35732

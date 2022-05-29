@@ -36,6 +36,10 @@ spring:
                 jwt:
                     issuer-uri: http://localhost:8880/auth/realms/spring-cloud-microservices-realm
 
+    logstash:
+        server: ${LOGSTASH_SERVER:localhost}
+        port: ${LOGSTASH_PORT:5000}
+
 # App Properties
 employee-service:
     cors:
