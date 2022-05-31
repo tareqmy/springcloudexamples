@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,8 +41,10 @@ public class OrganizationController {
 
     @HystrixCommand(defaultFallback = "findAllFallBack")
 	@GetMapping
-	public List<Organization> findAll() {
+	public List<Organization> findAll(@AuthenticationPrincipal Jwt jwt) {
         log.info("Organization find");
+        log.info("{}", jwt.getClaims());
+        log.info("{}", jwt.getHeaders());
         ArtificialUtils.artificialSlowness();
 		return repository.findAll();
 	}

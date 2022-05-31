@@ -5,6 +5,8 @@ import com.tareqmy.employeeservice.model.Employee;
 import com.tareqmy.employeeservice.repository.EmployeeRepository;
 import com.tareqmy.employeeservice.utils.ArtificialUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,8 +35,10 @@ public class EmployeeController {
 
     @HystrixCommand(defaultFallback = "findAllFallBack")
     @GetMapping("/")
-    public List<Employee> findAll() {
+    public List<Employee> findAll(@AuthenticationPrincipal Jwt jwt) {
         log.info("Employee find");
+        log.info("{}", jwt.getClaims());
+        log.info("{}", jwt.getHeaders());
         ArtificialUtils.artificialSlowness();
         return repository.findAll();
     }
