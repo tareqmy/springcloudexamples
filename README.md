@@ -5,7 +5,9 @@
 - cloud -> eureka/zookeeper/consul, discovery/registry-server, config-server, 
            gateway(load balancing and rate limiting), ribbon, openfeign, aws xray/zipkin/sleuth
 - message/events -> rabbitmq, kafka, cloudbus, cloud-stream
+- auto reload config change through eventbus
 - elasticsearch, kibana, logstash
+- second level cache caffiene, hazecast, redis
 - openapi3
 
 ### Reference Documentation

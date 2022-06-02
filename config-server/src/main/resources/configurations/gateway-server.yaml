@@ -6,6 +6,8 @@ spring:
             resourceserver:
                 jwt:
                     issuer-uri: http://localhost:8880/auth/realms/spring-cloud-microservices-realm
+    redis:
+        password: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     cloud:
         gateway:
             discovery:
@@ -33,18 +35,33 @@ spring:
                         - Path=/employee/**
                     filters:
                         - RewritePath=/employee/(?<path>.*), /$\{path}
+                        - name: RequestRateLimiter
+                          args:
+                              redis-rate-limiter.replenishRate: 1
+                              redis-rate-limiter.burstCapacity: 1
+                              redis-rate-limiter.requestedTokens: 1
                 -   id: department-service
                     uri: lb://department-service
                     predicates:
                         - Path=/department/**
                     filters:
                         - RewritePath=/department/(?<path>.*), /$\{path}
+                        - name: RequestRateLimiter
+                          args:
+                              redis-rate-limiter.replenishRate: 1
+                              redis-rate-limiter.burstCapacity: 1
+                              redis-rate-limiter.requestedTokens: 1
                 -   id: organization-service
                     uri: lb://organization-service
                     predicates:
                         - Path=/organization/**
                     filters:
                         - RewritePath=/organization/(?<path>.*), /$\{path}
+                        - name: RequestRateLimiter
+                          args:
+                              redis-rate-limiter.replenishRate: 1
+                              redis-rate-limiter.burstCapacity: 1
+                              redis-rate-limiter.requestedTokens: 1
 
                 -   id: openapi
                     uri: http://localhost:${server.port}
