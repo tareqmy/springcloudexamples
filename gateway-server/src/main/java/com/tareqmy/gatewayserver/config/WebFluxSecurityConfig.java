@@ -15,15 +15,16 @@ public class WebFluxSecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity serverHttpSecurity) {
-        serverHttpSecurity.authorizeExchange(exchange -> exchange
-                .pathMatchers("/v3/api-docs/**",
-                    "/employee/v3/api-docs/**",
-                    "/department/v3/api-docs/**",
-                    "/organization/v3/api-docs/**",
-                    "/webjars/swagger-ui/**",
-                    "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .anyExchange().authenticated())
-            .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt);
+
+        serverHttpSecurity.authorizeExchange()
+            .pathMatchers("/v3/api-docs/**", "/employee/v3/api-docs/**",
+                "/department/v3/api-docs/**", "/organization/v3/api-docs/**",
+                "/webjars/swagger-ui/**", "/swagger-ui/**", "/swagger-ui.html")
+            .permitAll()
+            .and()
+            .authorizeExchange().anyExchange().authenticated()
+            .and()
+            .oauth2ResourceServer().jwt();
 
         serverHttpSecurity.csrf().disable();
         serverHttpSecurity.formLogin().disable();

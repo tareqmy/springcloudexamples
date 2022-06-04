@@ -15,6 +15,10 @@ public class RateLimitingConfig {
 //        return exchange -> Mono.just("1");
 //    }
 
+    /*
+     * NOTE: this stops all unauthenticated access :(
+     * need a way to allow public permitted urls from this. but how!
+     */
     @Bean
     KeyResolver userKeyResolver() {
         return exchange -> ReactiveSecurityContextHolder.getContext()
