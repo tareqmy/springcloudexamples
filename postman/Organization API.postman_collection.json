@@ -1,442 +1,442 @@
 {
-	"info": {
-		"_postman_id": "4199a080-6114-4b41-bc91-bfa52868745e",
-		"name": "Organization API",
-		"description": "Documentation Organization API v1.0",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1601434"
-	},
-	"item": [
-		{
-			"name": "(root)",
-			"item": [
-				{
-					"name": "find All",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				},
-				{
-					"name": "add",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"id\": 7554626,\n  \"name\": \"ipsum ut\",\n  \"address\": \"consequat aute pariatur ad sit\",\n  \"departments\": [\n    {\n      \"id\": 15063531,\n      \"name\": \"Ut adipisicing cillum reprehenderit\",\n      \"employees\": [\n        {\n          \"id\": 73488542,\n          \"name\": \"dolore fugiat occaecat sit\",\n          \"age\": 65217597,\n          \"position\": \"veniam do sint\"\n        },\n        {\n          \"id\": 58015025,\n          \"name\": \"voluptate elit ullamco id\",\n          \"age\": 2718071,\n          \"position\": \"dolore labore mollit in\"\n        }\n      ]\n    },\n    {\n      \"id\": 76273697,\n      \"name\": \"nostrud aliqua\",\n      \"employees\": [\n        {\n          \"id\": -88023644,\n          \"name\": \"proident cupidatat Duis dolor\",\n          \"age\": 59110385,\n          \"position\": \"esse do\"\n        },\n        {\n          \"id\": -4284388,\n          \"name\": \"esse do id ut\",\n          \"age\": 51319872,\n          \"position\": \"ut esse fugiat sint\"\n        }\n      ]\n    }\n  ],\n  \"employees\": [\n    {\n      \"id\": -5294226,\n      \"name\": \"Ut\",\n      \"age\": -4455461,\n      \"position\": \"et cillum\"\n    },\n    {\n      \"id\": -68132944,\n      \"name\": \"Ut consectetur Duis est\",\n      \"age\": 14074735,\n      \"position\": \"ullamco in Ut do\"\n    }\n  ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"id\": 7554626,\n  \"name\": \"ipsum ut\",\n  \"address\": \"consequat aute pariatur ad sit\",\n  \"departments\": [\n    {\n      \"id\": 15063531,\n      \"name\": \"Ut adipisicing cillum reprehenderit\",\n      \"employees\": [\n        {\n          \"id\": 73488542,\n          \"name\": \"dolore fugiat occaecat sit\",\n          \"age\": 65217597,\n          \"position\": \"veniam do sint\"\n        },\n        {\n          \"id\": 58015025,\n          \"name\": \"voluptate elit ullamco id\",\n          \"age\": 2718071,\n          \"position\": \"dolore labore mollit in\"\n        }\n      ]\n    },\n    {\n      \"id\": 76273697,\n      \"name\": \"nostrud aliqua\",\n      \"employees\": [\n        {\n          \"id\": -88023644,\n          \"name\": \"proident cupidatat Duis dolor\",\n          \"age\": 59110385,\n          \"position\": \"esse do\"\n        },\n        {\n          \"id\": -4284388,\n          \"name\": \"esse do id ut\",\n          \"age\": 51319872,\n          \"position\": \"ut esse fugiat sint\"\n        }\n      ]\n    }\n  ],\n  \"employees\": [\n    {\n      \"id\": -5294226,\n      \"name\": \"Ut\",\n      \"age\": -4455461,\n      \"position\": \"et cillum\"\n    },\n    {\n      \"id\": -68132944,\n      \"name\": \"Ut consectetur Duis est\",\n      \"age\": 14074735,\n      \"position\": \"ullamco in Ut do\"\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "{id}",
-			"item": [
-				{
-					"name": "find By Id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/:id",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "33944766",
-									"description": "(Required) "
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "33944766",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				},
-				{
-					"name": "find By Id With Employees",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/:id/with-employees",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								":id",
-								"with-employees"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "33944766",
-									"description": "(Required) "
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/:id/with-employees",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										":id",
-										"with-employees"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "33944766",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				},
-				{
-					"name": "find By Id With Departments",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/:id/with-departments",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								":id",
-								"with-departments"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "33944766",
-									"description": "(Required) "
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/:id/with-departments",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										":id",
-										"with-departments"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "33944766",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				},
-				{
-					"name": "find By Id With Departments And Employees",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/:id/with-departments-and-employees",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								":id",
-								"with-departments-and-employees"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "33944766",
-									"description": "(Required) "
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/:id/with-departments-and-employees",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										":id",
-										"with-departments-and-employees"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "33944766",
-											"description": "(Required) "
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "*/*"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
-				}
-			]
-		}
-	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{accessToken}}",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "baseUrl",
-			"value": "http://localhost:8096",
-			"type": "string"
-		}
-	]
+    "info": {
+        "_postman_id": "4199a080-6114-4b41-bc91-bfa52868745e",
+        "name": "Organization API",
+        "description": "Documentation Organization API v1.0",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "1601434"
+    },
+    "item": [
+        {
+            "name": "(root)",
+            "item": [
+                {
+                    "name": "find All",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ""
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ""
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "add",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"id\": 7554626,\n  \"name\": \"ipsum ut\",\n  \"address\": \"consequat aute pariatur ad sit\",\n  \"departments\": [\n    {\n      \"id\": 15063531,\n      \"name\": \"Ut adipisicing cillum reprehenderit\",\n      \"employees\": [\n        {\n          \"id\": 73488542,\n          \"name\": \"dolore fugiat occaecat sit\",\n          \"age\": 65217597,\n          \"position\": \"veniam do sint\"\n        },\n        {\n          \"id\": 58015025,\n          \"name\": \"voluptate elit ullamco id\",\n          \"age\": 2718071,\n          \"position\": \"dolore labore mollit in\"\n        }\n      ]\n    },\n    {\n      \"id\": 76273697,\n      \"name\": \"nostrud aliqua\",\n      \"employees\": [\n        {\n          \"id\": -88023644,\n          \"name\": \"proident cupidatat Duis dolor\",\n          \"age\": 59110385,\n          \"position\": \"esse do\"\n        },\n        {\n          \"id\": -4284388,\n          \"name\": \"esse do id ut\",\n          \"age\": 51319872,\n          \"position\": \"ut esse fugiat sint\"\n        }\n      ]\n    }\n  ],\n  \"employees\": [\n    {\n      \"id\": -5294226,\n      \"name\": \"Ut\",\n      \"age\": -4455461,\n      \"position\": \"et cillum\"\n    },\n    {\n      \"id\": -68132944,\n      \"name\": \"Ut consectetur Duis est\",\n      \"age\": 14074735,\n      \"position\": \"ullamco in Ut do\"\n    }\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ""
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"id\": 7554626,\n  \"name\": \"ipsum ut\",\n  \"address\": \"consequat aute pariatur ad sit\",\n  \"departments\": [\n    {\n      \"id\": 15063531,\n      \"name\": \"Ut adipisicing cillum reprehenderit\",\n      \"employees\": [\n        {\n          \"id\": 73488542,\n          \"name\": \"dolore fugiat occaecat sit\",\n          \"age\": 65217597,\n          \"position\": \"veniam do sint\"\n        },\n        {\n          \"id\": 58015025,\n          \"name\": \"voluptate elit ullamco id\",\n          \"age\": 2718071,\n          \"position\": \"dolore labore mollit in\"\n        }\n      ]\n    },\n    {\n      \"id\": 76273697,\n      \"name\": \"nostrud aliqua\",\n      \"employees\": [\n        {\n          \"id\": -88023644,\n          \"name\": \"proident cupidatat Duis dolor\",\n          \"age\": 59110385,\n          \"position\": \"esse do\"\n        },\n        {\n          \"id\": -4284388,\n          \"name\": \"esse do id ut\",\n          \"age\": 51319872,\n          \"position\": \"ut esse fugiat sint\"\n        }\n      ]\n    }\n  ],\n  \"employees\": [\n    {\n      \"id\": -5294226,\n      \"name\": \"Ut\",\n      \"age\": -4455461,\n      \"position\": \"et cillum\"\n    },\n    {\n      \"id\": -68132944,\n      \"name\": \"Ut consectetur Duis est\",\n      \"age\": 14074735,\n      \"position\": \"ullamco in Ut do\"\n    }\n  ]\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ""
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "{id}",
+            "item": [
+                {
+                    "name": "find By Id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "33944766",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "33944766",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "find By Id With Employees",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:id/with-employees",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":id",
+                                "with-employees"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "33944766",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/:id/with-employees",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ":id",
+                                        "with-employees"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "33944766",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "find By Id With Departments",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:id/with-departments",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":id",
+                                "with-departments"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "33944766",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/:id/with-departments",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ":id",
+                                        "with-departments"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "33944766",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "find By Id With Departments And Employees",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:id/with-departments-and-employees",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":id",
+                                "with-departments-and-employees"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "33944766",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "OK",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/:id/with-departments-and-employees",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        ":id",
+                                        "with-departments-and-employees"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "33944766",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "*/*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{accessToken}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8096",
+            "type": "string"
+        }
+    ]
 }

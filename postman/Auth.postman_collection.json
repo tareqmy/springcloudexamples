@@ -1,184 +1,184 @@
 {
-	"info": {
-		"_postman_id": "ff6f99bd-10d2-43ba-af8a-8ac7f9eade05",
-		"name": "Auth",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1601434"
-	},
-	"item": [
-		{
-			"name": "Login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"    pm.environment.set(\"accessToken\", pm.response.json().access_token);",
-							"    pm.environment.set(\"refreshToken\", pm.response.json().refres_token);",
-							"    pm.environment.set(\"idToken\", pm.response.json().id_token);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "EsgXCwoQIlxDcSiLTjrPzopPWCQkMm8K",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "spring-cloud-gateway-server",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "grant_type",
-							"value": "password",
-							"type": "text"
-						},
-						{
-							"key": "username",
-							"value": "jdoe",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "jdoe",
-							"type": "text"
-						},
-						{
-							"key": "scope",
-							"value": "openid",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8880/auth/realms/spring-cloud-microservices-realm/protocol/openid-connect/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8880",
-					"path": [
-						"auth",
-						"realms",
-						"spring-cloud-microservices-realm",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "oauth2",
-		"oauth2": [
-			{
-				"key": "tokenName",
-				"value": "auth_token",
-				"type": "string"
-			},
-			{
-				"key": "tokenType",
-				"value": "Bearer",
-				"type": "string"
-			},
-			{
-				"key": "accessToken",
-				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMZk9DNnl4TmY2Q0xVS2U5TXVLYmlkX1FmZHA1V081WUxfcEV1UXZhRW5nIn0.eyJleHAiOjE2NTMzODgyNzMsImlhdCI6MTY1MzM4Nzk3MywianRpIjoiZTlkYWZmZWUtZWRhYy00OGI3LTg2ZDUtOWU0MWJkYWZmZjVhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4ODgwL2F1dGgvcmVhbG1zL3NwcmluZy1jbG91ZC1taWNyb3NlcnZpY2VzLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImMyN2Y2ZGRkLWNkNWUtNDZmMy05ZjlhLTU3MjU3ZDhkOWUxMSIsInR5cCI6IkJlYXJlciIsImF6cCI6InNwcmluZy1jbG91ZC1nYXRld2F5LXNlcnZlciIsInNlc3Npb25fc3RhdGUiOiI3OGYyOTBmZC0xZTlhLTQ5MzAtODNlMi04MDRhNGJjZWY3ODEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJhZG1pbiIsImRlZmF1bHQtcm9sZXMtc3ByaW5nLWNsb3VkLW1pY3Jvc2VydmljZXMtcmVhbG0iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI3OGYyOTBmZC0xZTlhLTQ5MzAtODNlMi04MDRhNGJjZWY3ODEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJqb24gZG9lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiamRvZSIsImdpdmVuX25hbWUiOiJqb24iLCJmYW1pbHlfbmFtZSI6ImRvZSJ9.MRusHaiHfR0lmoDVODk0Ej4ynJqCZfofA0tFJd9zcQph7J4D7NpW1OpWh2dvyKzOB-Budp4uU1WY5d3eo9voN1gu0TEWO8O9WPJQE7jOcQMcGHmyqq5KVEA9XlCA-yUU7XPxPmL3mSY_4U_RkAc2TvnPX755Y4jUIplro7YnVElZ8OPCkqHqyNH5c1mKTkurUQqg2RB5CQX3y7p41NgSNZo5HEOPz9cC6JxOO-qPyZIlvvx15_jxnusKOV5e2ZH5fi1bOMxNBX5N3OF_QGLf8yBW9vD_c9uVDI5vFb-FcwKEX-sNCwJBVmmNzkEV0cg5Q-gyN3hMMiBVR_93oXUy5g",
-				"type": "string"
-			},
-			{
-				"key": "challengeAlgorithm",
-				"value": "S256",
-				"type": "string"
-			},
-			{
-				"key": "username",
-				"value": "jdoe",
-				"type": "string"
-			},
-			{
-				"key": "scope",
-				"value": "openid",
-				"type": "string"
-			},
-			{
-				"key": "password",
-				"value": "jdoe",
-				"type": "string"
-			},
-			{
-				"key": "grant_type",
-				"value": "password_credentials",
-				"type": "string"
-			},
-			{
-				"key": "clientSecret",
-				"value": "EsgXCwoQIlxDcSiLTjrPzopPWCQkMm8K",
-				"type": "string"
-			},
-			{
-				"key": "clientId",
-				"value": "spring-cloud-gateway-server",
-				"type": "string"
-			},
-			{
-				"key": "addTokenTo",
-				"value": "header",
-				"type": "string"
-			},
-			{
-				"key": "client_authentication",
-				"value": "header",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "http://localhost:8880/auth/realms/spring-cloud-microservices-realm/protocol/openid-connect/token",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					"",
-					"pm.test(\"Your test name\", function () {",
-					"    var jsonData = pm.response.json();",
-					"    console.info(jsonData);",
-					"});"
-				]
-			}
-		}
-	]
+    "info": {
+        "_postman_id": "ff6f99bd-10d2-43ba-af8a-8ac7f9eade05",
+        "name": "Auth",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "1601434"
+    },
+    "item": [
+        {
+            "name": "Login",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    pm.environment.set(\"accessToken\", pm.response.json().access_token);",
+                            "    pm.environment.set(\"refreshToken\", pm.response.json().refres_token);",
+                            "    pm.environment.set(\"idToken\", pm.response.json().id_token);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "password",
+                            "value": "EsgXCwoQIlxDcSiLTjrPzopPWCQkMm8K",
+                            "type": "string"
+                        },
+                        {
+                            "key": "username",
+                            "value": "spring-cloud-gateway-server",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "password",
+                            "type": "text"
+                        },
+                        {
+                            "key": "username",
+                            "value": "jdoe",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "jdoe",
+                            "type": "text"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "openid",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8880/auth/realms/spring-cloud-microservices-realm/protocol/openid-connect/token",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8880",
+                    "path": [
+                        "auth",
+                        "realms",
+                        "spring-cloud-microservices-realm",
+                        "protocol",
+                        "openid-connect",
+                        "token"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "oauth2",
+        "oauth2": [
+            {
+                "key": "tokenName",
+                "value": "auth_token",
+                "type": "string"
+            },
+            {
+                "key": "tokenType",
+                "value": "Bearer",
+                "type": "string"
+            },
+            {
+                "key": "accessToken",
+                "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMZk9DNnl4TmY2Q0xVS2U5TXVLYmlkX1FmZHA1V081WUxfcEV1UXZhRW5nIn0.eyJleHAiOjE2NTMzODgyNzMsImlhdCI6MTY1MzM4Nzk3MywianRpIjoiZTlkYWZmZWUtZWRhYy00OGI3LTg2ZDUtOWU0MWJkYWZmZjVhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4ODgwL2F1dGgvcmVhbG1zL3NwcmluZy1jbG91ZC1taWNyb3NlcnZpY2VzLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImMyN2Y2ZGRkLWNkNWUtNDZmMy05ZjlhLTU3MjU3ZDhkOWUxMSIsInR5cCI6IkJlYXJlciIsImF6cCI6InNwcmluZy1jbG91ZC1nYXRld2F5LXNlcnZlciIsInNlc3Npb25fc3RhdGUiOiI3OGYyOTBmZC0xZTlhLTQ5MzAtODNlMi04MDRhNGJjZWY3ODEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJhZG1pbiIsImRlZmF1bHQtcm9sZXMtc3ByaW5nLWNsb3VkLW1pY3Jvc2VydmljZXMtcmVhbG0iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI3OGYyOTBmZC0xZTlhLTQ5MzAtODNlMi04MDRhNGJjZWY3ODEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJqb24gZG9lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiamRvZSIsImdpdmVuX25hbWUiOiJqb24iLCJmYW1pbHlfbmFtZSI6ImRvZSJ9.MRusHaiHfR0lmoDVODk0Ej4ynJqCZfofA0tFJd9zcQph7J4D7NpW1OpWh2dvyKzOB-Budp4uU1WY5d3eo9voN1gu0TEWO8O9WPJQE7jOcQMcGHmyqq5KVEA9XlCA-yUU7XPxPmL3mSY_4U_RkAc2TvnPX755Y4jUIplro7YnVElZ8OPCkqHqyNH5c1mKTkurUQqg2RB5CQX3y7p41NgSNZo5HEOPz9cC6JxOO-qPyZIlvvx15_jxnusKOV5e2ZH5fi1bOMxNBX5N3OF_QGLf8yBW9vD_c9uVDI5vFb-FcwKEX-sNCwJBVmmNzkEV0cg5Q-gyN3hMMiBVR_93oXUy5g",
+                "type": "string"
+            },
+            {
+                "key": "challengeAlgorithm",
+                "value": "S256",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "jdoe",
+                "type": "string"
+            },
+            {
+                "key": "scope",
+                "value": "openid",
+                "type": "string"
+            },
+            {
+                "key": "password",
+                "value": "jdoe",
+                "type": "string"
+            },
+            {
+                "key": "grant_type",
+                "value": "password_credentials",
+                "type": "string"
+            },
+            {
+                "key": "clientSecret",
+                "value": "EsgXCwoQIlxDcSiLTjrPzopPWCQkMm8K",
+                "type": "string"
+            },
+            {
+                "key": "clientId",
+                "value": "spring-cloud-gateway-server",
+                "type": "string"
+            },
+            {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+            },
+            {
+                "key": "client_authentication",
+                "value": "header",
+                "type": "string"
+            },
+            {
+                "key": "accessTokenUrl",
+                "value": "http://localhost:8880/auth/realms/spring-cloud-microservices-realm/protocol/openid-connect/token",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "",
+                    "pm.test(\"Your test name\", function () {",
+                    "    var jsonData = pm.response.json();",
+                    "    console.info(jsonData);",
+                    "});"
+                ]
+            }
+        }
+    ]
 }
