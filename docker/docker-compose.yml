@@ -115,6 +115,16 @@ services:
         command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
         volumes:
             - redis_data:/data
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        hostname: rabbitmq
+        restart: unless-stopped
+        stdin_open: true
+        tty: true
+        ports:
+            - "5672:5672"
+            - "15672:15672"
 volumes:
     redis_data:
         driver: local

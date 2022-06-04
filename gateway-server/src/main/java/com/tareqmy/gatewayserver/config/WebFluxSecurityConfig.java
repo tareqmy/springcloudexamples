@@ -24,7 +24,7 @@ public class WebFluxSecurityConfig {
             .and()
             .authorizeExchange().anyExchange().authenticated()
             .and()
-            .oauth2ResourceServer().jwt();
+            .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt);
 
         serverHttpSecurity.csrf().disable();
         serverHttpSecurity.formLogin().disable();

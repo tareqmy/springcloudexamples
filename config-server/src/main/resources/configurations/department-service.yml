@@ -40,6 +40,19 @@ spring:
         server: ${LOGSTASH_SERVER:localhost}
         port: ${LOGSTASH_PORT:5000}
 
+    rabbitmq:
+        host: ${RABBITMQ_HOST:localhost}
+        port: ${RABBITMQ_PORT:5672}
+
+    cloud:
+        bus:
+            id: ${spring.application.name}:${spring.profiles.active}:${random.uuid}
+            enabled: true
+            refresh:
+                enabled: true
+            env:
+                enabled: true
+
 # App Properties
 department-service:
     cors:
