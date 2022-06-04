@@ -35,33 +35,33 @@ spring:
                         - Path=/employee/**
                     filters:
                         - RewritePath=/employee/(?<path>.*), /$\{path}
-                        - name: RequestRateLimiter
-                          args:
-                              redis-rate-limiter.replenishRate: 1
-                              redis-rate-limiter.burstCapacity: 1
-                              redis-rate-limiter.requestedTokens: 1
+                        -   name: RequestRateLimiter
+                            args:
+                                redis-rate-limiter.replenishRate: 1
+                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.requestedTokens: 1
                 -   id: department-service
                     uri: lb://department-service
                     predicates:
                         - Path=/department/**
                     filters:
                         - RewritePath=/department/(?<path>.*), /$\{path}
-                        - name: RequestRateLimiter
-                          args:
-                              redis-rate-limiter.replenishRate: 1
-                              redis-rate-limiter.burstCapacity: 1
-                              redis-rate-limiter.requestedTokens: 1
+                        -   name: RequestRateLimiter
+                            args:
+                                redis-rate-limiter.replenishRate: 1
+                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.requestedTokens: 1
                 -   id: organization-service
                     uri: lb://organization-service
                     predicates:
                         - Path=/organization/**
                     filters:
                         - RewritePath=/organization/(?<path>.*), /$\{path}
-                        - name: RequestRateLimiter
-                          args:
-                              redis-rate-limiter.replenishRate: 1
-                              redis-rate-limiter.burstCapacity: 1
-                              redis-rate-limiter.requestedTokens: 1
+                        -   name: RequestRateLimiter
+                            args:
+                                redis-rate-limiter.replenishRate: 1
+                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.requestedTokens: 1
 
                 -   id: openapi
                     uri: http://localhost:${server.port}
@@ -100,12 +100,12 @@ management:
 springdoc:
     swagger-ui:
         urls:
-            - name: employee
-              url: /v3/api-docs/employee
-            - name: department
-              url: /v3/api-docs/department
-            - name: organization
-              url: /v3/api-docs/organization
+            -   name: employee
+                url: /v3/api-docs/employee
+            -   name: department
+                url: /v3/api-docs/department
+            -   name: organization
+                url: /v3/api-docs/organization
 
 eureka:
     client:
