@@ -56,7 +56,7 @@ spring:
 # App Properties
 department-service:
     cors:
-        allowed-origins: "http://localhost:8080"
+        allowed-origins: "http://localhost:8080,http://localhost:3000"
         allowed-methods: "*"
         allowed-headers: "*"
         exposed-headers: "Authorization"
