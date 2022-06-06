@@ -40,8 +40,8 @@ spring:
                         - RewritePath=/employee/(?<path>.*), /$\{path}
                         -   name: RequestRateLimiter
                             args:
-                                redis-rate-limiter.replenishRate: 1
-                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.replenishRate: 10
+                                redis-rate-limiter.burstCapacity: 20
                                 redis-rate-limiter.requestedTokens: 1
                 -   id: department-service
                     uri: lb://department-service
@@ -51,8 +51,8 @@ spring:
                         - RewritePath=/department/(?<path>.*), /$\{path}
                         -   name: RequestRateLimiter
                             args:
-                                redis-rate-limiter.replenishRate: 1
-                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.replenishRate: 10
+                                redis-rate-limiter.burstCapacity: 20
                                 redis-rate-limiter.requestedTokens: 1
                 -   id: organization-service
                     uri: lb://organization-service
@@ -62,8 +62,8 @@ spring:
                         - RewritePath=/organization/(?<path>.*), /$\{path}
                         -   name: RequestRateLimiter
                             args:
-                                redis-rate-limiter.replenishRate: 1
-                                redis-rate-limiter.burstCapacity: 1
+                                redis-rate-limiter.replenishRate: 10
+                                redis-rate-limiter.burstCapacity: 20
                                 redis-rate-limiter.requestedTokens: 1
 
                 -   id: openapi
