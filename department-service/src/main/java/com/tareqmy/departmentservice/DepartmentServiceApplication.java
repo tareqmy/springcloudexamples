@@ -4,6 +4,8 @@ import com.tareqmy.departmentservice.model.Department;
 import com.tareqmy.departmentservice.repository.DepartmentRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.annotations.servers.ServerVariable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -13,7 +15,11 @@ import org.springframework.context.annotation.Bean;
 @EnableHystrix
 @EnableFeignClients
 @OpenAPIDefinition(info =
-@Info(title = "Department API", version = "${springdoc.version}", description = "Documentation Department API v1.0")
+@Info(title = "Department API", version = "${springdoc.version}", description = "Documentation Department API v1.0"),
+    servers = {
+        @Server(url = "{custom_server}",
+            variables = {@ServerVariable(name = "custom_server", defaultValue = "http://localhost:8080/department")})
+    }
 )
 @SpringBootApplication
 public class DepartmentServiceApplication {

@@ -4,6 +4,8 @@ import com.tareqmy.employeeservice.model.Employee;
 import com.tareqmy.employeeservice.repository.EmployeeRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.annotations.servers.ServerVariable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -11,7 +13,11 @@ import org.springframework.context.annotation.Bean;
 
 @EnableHystrix
 @OpenAPIDefinition(info =
-@Info(title = "Employee API", version = "${springdoc.version}", description = "Documentation Employee API v1.0")
+@Info(title = "Employee API", version = "${springdoc.version}", description = "Documentation Employee API v1.0"),
+    servers = {
+    @Server(url = "{custom_server}",
+        variables = {@ServerVariable(name = "custom_server", defaultValue = "http://localhost:8080/employee")})
+}
 )
 @SpringBootApplication
 public class EmployeeServiceApplication {

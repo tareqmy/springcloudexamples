@@ -4,6 +4,8 @@ import com.tareqmy.organizationservice.model.Organization;
 import com.tareqmy.organizationservice.repository.OrganizationRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.annotations.servers.ServerVariable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -13,7 +15,11 @@ import org.springframework.context.annotation.Bean;
 @EnableHystrix
 @EnableFeignClients
 @OpenAPIDefinition(info =
-@Info(title = "Organization API", version = "${springdoc.version}", description = "Documentation Organization API v1.0")
+@Info(title = "Organization API", version = "${springdoc.version}", description = "Documentation Organization API v1.0"),
+    servers = {
+        @Server(url = "{custom_server}",
+            variables = {@ServerVariable(name = "custom_server", defaultValue = "http://localhost:8080/organization")})
+    }
 )
 @SpringBootApplication
 public class OrganizationServiceApplication {
