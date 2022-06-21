@@ -23,7 +23,6 @@ public class Department {
     private List<Employee> employees = new ArrayList<>();
 
     public Department(Long organizationId, String name) {
-        super();
         this.organizationId = organizationId;
         this.name = name;
     }

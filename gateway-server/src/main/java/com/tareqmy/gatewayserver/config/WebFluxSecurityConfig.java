@@ -15,7 +15,6 @@ public class WebFluxSecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity serverHttpSecurity) {
-
         serverHttpSecurity.authorizeExchange()
             .pathMatchers("/v3/api-docs/**", "/employee/v3/api-docs/**",
                 "/department/v3/api-docs/**", "/organization/v3/api-docs/**",
