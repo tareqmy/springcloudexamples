@@ -4,4 +4,3 @@ logging:
         root: INFO
         #        web: DEBUG
         com.tareqmy.gatewayserver: DEBUG
-#        org.springframework.cloud.gateway: DEBUG

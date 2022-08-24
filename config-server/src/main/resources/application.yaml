@@ -12,15 +12,15 @@ spring:
             server:
                 git:
 #  the following git repo can be used from locally and only needs commit. no push required
-                    uri: ${HOME}/development/projects/spring/cloudconfigrepo
-#                    uri: https://github.com/tareqmy/cloudconfigrepo
-                    search-paths: configs
-                    clone-on-start: true
+#                    uri: ${HOME}/development/projects/spring/cloudconfigrepo
+##                    uri: https://github.com/tareqmy/cloudconfigrepo
+#                    search-paths: configs
+#                    clone-on-start: true
 #  native mode can be applied with the following commented section
-#                native:
-#                    search-locations: classpath:/configurations
-#    profiles:
-#        active: native
+                native:
+                    search-locations: classpath:/configurations
+    profiles:
+        active: native
 
     rabbitmq:
         host: ${RABBITMQ_HOST:localhost}

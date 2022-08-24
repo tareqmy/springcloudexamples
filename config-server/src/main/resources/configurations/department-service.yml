@@ -52,13 +52,3 @@ spring:
                 enabled: true
             env:
                 enabled: true
-
-# App Properties
-department-service:
-    cors:
-        allowed-origins: "http://localhost:8080,http://localhost:3000"
-        allowed-methods: "*"
-        allowed-headers: "*"
-        exposed-headers: "Authorization"
-        allow-credentials: true
-        max-age: 1800
